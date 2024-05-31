@@ -2,8 +2,8 @@
     <div class="position-sticky pt-3">
         <div class="text-center" style="margin-bottom: 1.7rem;">
             <a href="/" class="align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
-                <i class="fa-solid fa-piggy-bank"></i>
-                CMPHO e-Financial
+                <h1><i class="fa-solid fa-piggy-bank text-warning fw-bold"></i></h1>
+                <h5>CMPHO e-Financial</h5>
             </a>
         </div>
         <ul class="list-unstyled ps-0">
@@ -47,10 +47,10 @@
             </li>
             <li class="mb-1">
                 <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
-                    data-bs-target="#config-collapse" aria-expanded="true">
+                    data-bs-target="#data-collapse" aria-expanded="true">
                     ฐานข้อมูลบัญชีธนาคาร
                 </button>
-                <div class="collapse {{ request()->is('data*') ? 'show':'' }}" id="config-collapse">
+                <div class="collapse {{ request()->is('data*') ? 'show':'' }}" id="data-collapse">
                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                         <li>
                             <a href="{{ route('emp.index') }}" 
@@ -77,6 +77,23 @@
                                 class="link-nav rounded {{ request()->is('data/type*') ? 'side-active':'' }}">
                                 <i class="fa-solid fa-list icon-nav"></i>
                                 ข้อมูลประเภทบัญชี
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="mb-1">
+                <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
+                    data-bs-target="#setting-collapse" aria-expanded="true">
+                    ตั้งค่าระบบ
+                </button>
+                <div class="collapse {{ request()->is('setting*') ? 'show':'' }}" id="setting-collapse">
+                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                        <li>
+                            <a href="{{ route('users.index') }}" 
+                                class="link-nav rounded {{ request()->is('setting/user*') ? 'side-active':'' }}">
+                                <i class="fa-solid fa-user-lock icon-nav"></i>
+                                จัดการผู้ใช้งาน
                             </a>
                         </li>
                     </ul>

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" style="margin-top: 4rem;">
-    <div class="d-flex justify-content-end">
+    <div class="d-flex justify-content-start">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="#">ข้อมูลเงินโอนเข้า</a></li>

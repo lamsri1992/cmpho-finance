@@ -1,15 +1,15 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\BankController;
 use App\Http\Controllers\TypeController;
 use App\Http\Controllers\IncomeController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('index');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -41,6 +41,13 @@ Route::prefix('data/employee')->group(function () {
     Route::post('/account/update/{id}', [EmployeeController::class, 'account_update'])->name('emp.acc_update');
     // Route::post('/account/{id}', [EmployeeController::class, 'account'])->name('emp.account');
     Route::get('/{id}', [EmployeeController::class, 'show'])->name('emp.show');
+});
+
+Route::prefix('setting/userslist')->group(function () {
+    Route::get('/', [UserController::class, 'index'])->name('users.index');
+    Route::post('/store', [UserController::class, 'store'])->name('users.store');
+    Route::post('/update/{id}', [UserController::class, 'update'])->name('users.update');
+    Route::get('/{id}', [UserController::class, 'show'])->name('users.show');
 });
 
 Route::middleware('auth')->group(function () {

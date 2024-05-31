@@ -7,7 +7,7 @@
     }
 </style>
 <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" style="margin-top: 4rem;">
-    <div class="d-flex justify-content-end">
+    <div class="d-flex justify-content-start">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="#">ระบบฐานข้อมูล</a></li>
@@ -259,6 +259,7 @@
             });
         }
     });
+    
     $(document).ready(function() {
         $('.select_bank').select2({
             width: '100%',

@@ -1,47 +1,60 @@
-<x-guest-layout>
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
+<!doctype html>
+<html lang="en">
 
-    <form method="POST" action="{{ route('login') }}">
-        @csrf
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.84.0">
+    <title>CMPHO FINANCIAL - ระบบงานการเงิน สำนักงานสาธารณสุขจังหวัดเชียงใหม่</title>
+    <!-- Bootstrap core CSS -->
+    <link href="{{ asset('bootstrap/assets/dist/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@200;300&display=swap" rel="stylesheet">
+    <style>
+         * {
+            font-family: "Prompt", sans-serif;
+            font-weight: 300;
+        }
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+        
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
 
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="{{ asset('bootstrap/sign-in/signin.css') }}" rel="stylesheet">
+</head>
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+<body class="text-center">
 
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
+    <main class="form-signin">
+        <form method="POST" action="{{ route('login') }}">
+            @csrf
+            <img class="mb-4" src="{{ asset('img/logo_cmpho.png') }}" width="50%">
+            <div class="form-floating">
+                <input type="email" id="email" name="email" class="form-control" value="{{ old('email') }}" placeholder="">
+                <label for="">อีเมล์ผู้ใช้งาน</label>
+            </div>
+            <div class="form-floating">
+                <input type="password" id="password" name="password" class="form-control" placeholder="">
+                <label for="">ระบุรหัสผ่าน</label>
+            </div>
+            <button class="w-100 btn btn-success" type="submit">ลงชื่อเข้าใช้งาน</button>
+            <p class="mt-5 mb-3 text-muted">
+                <small>สำนักงานสาธารณสุขจังหวัดเชียงใหม่</small>
+            </p>
+        </form>
+    </main>
+</body>
 
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
-
-        <!-- Remember Me -->
-        <div class="block mt-4">
-            <label for="remember_me" class="inline-flex items-center">
-                <input id="remember_me" type="checkbox" class="rounded dark:bg-gray-900 border-gray-300 dark:border-gray-700 text-indigo-600 shadow-sm focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:focus:ring-offset-gray-800" name="remember">
-                <span class="ms-2 text-sm text-gray-600 dark:text-gray-400">{{ __('Remember me') }}</span>
-            </label>
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
-                </a>
-            @endif
-
-            <x-primary-button class="ms-3">
-                {{ __('Log in') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
+</html>

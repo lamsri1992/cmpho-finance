@@ -12,7 +12,11 @@
         <div class="nav-item text-nowrap">
             <a class="nav-link px-3" href="#">
                 <i class="fa-solid fa-user-circle"></i>
-                กลุ่มงานสุขภาพดิจิทัล
+                @if (Auth::guest())
+                    <script>window.location = "/";</script>
+                @else
+                    {{ Auth::user()->name }}
+                @endif
             </a>
         </div>
     </div>

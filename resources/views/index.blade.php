@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" style="margin-top: 4rem;">
-    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
         <h1 class="h4">
             <i class="fa-solid fa-chart-line"></i>
             Dashboard - หน้าแสดงรายงานข้อมูล
@@ -13,7 +13,7 @@
                 <div class="card-body">
                     <h1><i class="fa-solid fa-users text-primary"></i></h1>
                     <h5 class="card-title text-muted">
-                        เจ้าหน้าที่ทั้งหมด
+                        จำนวนเจ้าหน้าที่ทั้งหมด
                     </h5>
                     <h2 class="card-text">
                         {{ number_format($emp) }}
@@ -27,7 +27,7 @@
                 <div class="card-body">
                     <h1><i class="fa-solid fa-money-check text-info"></i></h1>
                     <h5 class="card-title text-muted">
-                        บัญชีทั้งหมด
+                        บัญชีธนาคารทั้งหมด
                     </h5>
                     <h2 class="card-text">
                         {{ number_format($acc) }}

@@ -14,18 +14,42 @@
             </li>
         </ul>
     </div>
-    <div class="navbar-nav">
-        <div class="nav-item text-nowrap">
-            <a class="nav-link px-3" href="#" style="color: #fff;">
-                <i class="fa-solid fa-user-circle"></i>
-                @if(Auth::guest())
-                    <script>
-                        window.location = "/";
-                    </script>
-                @else
-                    {{ Auth::user()->name }}
-                @endif
-            </a>
+    @if(Auth::guest())
+        <script>window.location = "/";</script>
+    @else
+        <div class="navbar-nav">
+            <div class="nav-item text-nowrap">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false" style="color: #fff;">
+                            สวัสดีคุณ , {{ Auth::user()->name }}
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fa-regular fa-edit"></i>
+                                    แก้ไขข้อมูลส่วนตัว
+                                </a>
+                            </li>
+                            <li>
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <a href="{{ route('logout') }}" class="dropdown-item"
+                                        onclick="event.preventDefault(); this.closest('form').submit();">
+                                        {!! '<i class="fa-solid fa-right-from-bracket"></i> ออกจากระบบ' !!}
+                                    </a>
+                                </form>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="#">
+                            <i class="fa-solid fa-user-circle text-light"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
+    @endif
 </nav>

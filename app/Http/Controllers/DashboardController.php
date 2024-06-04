@@ -12,8 +12,8 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $emp = DB::table('employee')->count();
-        $acc = DB::table('account')->count();
+        $emp = DB::table('employee')->where('emp_status',1)->count();
+        $acc = DB::table('account')->where('acc_status',1)->count();
         return view('index',['emp'=>$emp,'acc'=>$acc]);
     }
 

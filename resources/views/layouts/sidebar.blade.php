@@ -7,7 +7,23 @@
             </a>
         </div>
         <ul class="list-unstyled ps-0">
-            <li class="mb-1" hidden>
+            <li class="mb-1">
+                <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
+                    data-bs-target="#dashboard-collapse" aria-expanded="true">
+                    หน้าหลัก
+                </button>
+                <div class="collapse {{ request()->is('/') ? 'show':'' }}" id="dashboard-collapse">
+                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                        <li>
+                            <a href="{{ url('/') }}" class="link-nav rounded {{ request()->is('/') ? 'side-active':'' }}">
+                                <i class="fa-solid fa-chart-line icon-nav"></i>
+                                Dashboard
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="mb-1">
                 <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
                     data-bs-target="#income-collapse" aria-expanded="true">
                     ข้อมูลการโอนเงิน
@@ -24,22 +40,6 @@
                             <a href="{{ route('inc.report') }}" class="link-nav rounded {{ request()->is('income/report*') ? 'side-active':'' }}">
                                 <i class="fa-solid fa-print icon-nav"></i>
                                 ระบบรายงานข้อมูล
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-            <li class="mb-1">
-                <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
-                    data-bs-target="#income-collapse" aria-expanded="true">
-                    หน้าหลัก
-                </button>
-                <div class="collapse {{ request()->is('/') ? 'show':'' }}" id="income-collapse">
-                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                        <li>
-                            <a href="{{ url('/') }}" class="link-nav rounded {{ request()->is('/') ? 'side-active':'' }}">
-                                <i class="fa-solid fa-chart-line icon-nav"></i>
-                                Dashboard
                             </a>
                         </li>
                     </ul>

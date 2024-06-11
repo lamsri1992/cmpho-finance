@@ -11,7 +11,7 @@
  Target Server Version : 80033 (8.0.33)
  File Encoding         : 65001
 
- Date: 10/06/2024 14:26:43
+ Date: 11/06/2024 11:39:40
 */
 
 SET NAMES utf8mb4;
@@ -38,7 +38,7 @@ CREATE TABLE `account` (
 -- Records of account
 -- ----------------------------
 BEGIN;
-INSERT INTO `account` (`acc_id`, `acc_code`, `acc_name`, `employee_emp_cid`, `acc_bank_id`, `acc_branch`, `acc_type_id`, `emp_id`, `acc_status`) VALUES (1, '6782834693', 'กชพร อุดสร้อย', '1560300184127', NULL, NULL, 1, 1, '1');
+INSERT INTO `account` (`acc_id`, `acc_code`, `acc_name`, `employee_emp_cid`, `acc_bank_id`, `acc_branch`, `acc_type_id`, `emp_id`, `acc_status`) VALUES (1, '6782834693', 'กชพร อุดสร้อย', '1560300184127', '3', 'ทดสอบ', 1, 1, '1');
 INSERT INTO `account` (`acc_id`, `acc_code`, `acc_name`, `employee_emp_cid`, `acc_bank_id`, `acc_branch`, `acc_type_id`, `emp_id`, `acc_status`) VALUES (2, '5450249837', 'กนกนภัส อรัญมิตร', '1500900103225', NULL, NULL, 1, 2, '1');
 INSERT INTO `account` (`acc_id`, `acc_code`, `acc_name`, `employee_emp_cid`, `acc_bank_id`, `acc_branch`, `acc_type_id`, `emp_id`, `acc_status`) VALUES (3, '5150167169', 'กมลชนก วุฒิลักษณ์', '1501800062773', NULL, NULL, 1, 3, '1');
 INSERT INTO `account` (`acc_id`, `acc_code`, `acc_name`, `employee_emp_cid`, `acc_bank_id`, `acc_branch`, `acc_type_id`, `emp_id`, `acc_status`) VALUES (4, '5210671135', 'กรรณิการ์ กำเหมาะ', '1549900177022', NULL, NULL, 1, 4, '1');
@@ -3463,6 +3463,24 @@ BEGIN;
 COMMIT;
 
 -- ----------------------------
+-- Table structure for hospital_type
+-- ----------------------------
+DROP TABLE IF EXISTS `hospital_type`;
+CREATE TABLE `hospital_type` (
+  `hos_type_id` int NOT NULL AUTO_INCREMENT,
+  `hos_type_name` text COLLATE utf8mb4_general_ci,
+  PRIMARY KEY (`hos_type_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- ----------------------------
+-- Records of hospital_type
+-- ----------------------------
+BEGIN;
+INSERT INTO `hospital_type` (`hos_type_id`, `hos_type_name`) VALUES (1, 'เงินงบประมาน');
+INSERT INTO `hospital_type` (`hos_type_id`, `hos_type_name`) VALUES (2, 'เงินนอกงบประมาน');
+COMMIT;
+
+-- ----------------------------
 -- Table structure for job_batches
 -- ----------------------------
 DROP TABLE IF EXISTS `job_batches`;
@@ -3630,8 +3648,7 @@ CREATE TABLE `sessions` (
 -- Records of sessions
 -- ----------------------------
 BEGIN;
-INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES ('Rdq0HdP6gRmjxGbrHLSIsoBMPjY1wlbfZ6AQZa56', 1, '127.0.0.1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiT2VPZ3JXU3ZVVG8yVFpHQWJNdFhNWUIwZFJDc0lCNURkeU5YS2lxZSI7czozOiJ1cmwiO2E6MDp7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjMxOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvZGF0YS90eXBlIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTt9', 1717990199);
-INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES ('SfIbeww3Fw7aBwyEGvlOEvQdFLI7KmEBGWJYfxmR', 1, '127.0.0.1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiYmFGVnd2QVhWSkhpTDlQT0JvMVJpQktuelRhYjRJMUN6ZHNwTW9rdyI7czozOiJ1cmwiO2E6MDp7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjQ0OiJodHRwOi8vbG9jYWxob3N0OjgwMDAvZGF0YS9lbXBsb3llZS9NVFUyTnc9PSI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7fQ==', 1718003860);
+INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES ('JCx44N8pfmI7WHXz4gOm2nBoS2gMzJeBYJBWZB2Q', 1, '127.0.0.1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiS3k1a2JrYmJ0U3VlTE1JcXhIdEJQMVRLQ1lkT3BxUzlKaTJqbzY2TCI7czozOiJ1cmwiO2E6MDp7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjM1OiJodHRwOi8vbG9jYWxob3N0OjgwMDAvZGF0YS9ob3NwaXRhbCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7fQ==', 1718080750);
 COMMIT;
 
 -- ----------------------------

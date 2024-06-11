@@ -6,6 +6,7 @@ use App\Http\Controllers\BankController;
 use App\Http\Controllers\TypeController;
 use App\Http\Controllers\IncomeController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\HospitalController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -41,6 +42,11 @@ Route::prefix('data/employee')->group(function () {
     Route::post('/account/update/{id}', [EmployeeController::class, 'account_update'])->name('emp.acc_update');
     // Route::post('/account/{id}', [EmployeeController::class, 'account'])->name('emp.account');
     Route::get('/{id}', [EmployeeController::class, 'show'])->name('emp.show');
+});
+
+Route::prefix('data/hospital')->group(function () {
+    Route::get('/', [HospitalController::class, 'index'])->name('hospital.index');
+    Route::get('/{id}', [HospitalController::class, 'show'])->name('hospital.show');
 });
 
 Route::prefix('setting/userslist')->group(function () {

@@ -60,7 +60,8 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="link-nav rounded">
+                            <a href="{{ route('hospital.index') }}"
+                                class="link-nav rounded {{ request()->is('data/hospital*') ? 'side-active':'' }}">
                                 <i class="fa-solid fa-hospital icon-nav"></i>
                                 ข้อมูลหน่วยบริการ
                             </a>
